@@ -137,5 +137,27 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(0, account.yearChange());
     }
+
+    @Test
+    public void negativePay(){
+        CreditAccount account = new CreditAccount(
+                10,
+                10,
+                15
+        );
+
+        Assertions.assertEquals(false, account.pay(-300));
+    }
+
+    @Test
+    public void negativeAdd(){
+        CreditAccount account = new CreditAccount(
+                10,
+                10,
+                15
+        );
+
+        Assertions.assertEquals(false, account.add(-560));
+    }
 }
 
