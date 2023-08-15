@@ -19,18 +19,18 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldNotAdd(){
+    public void shouldNotAdd() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CreditAccount account = new CreditAccount(
                     0,
                     5000,
                     -456
             );
-        } );
+        });
     }
 
     @Test
-    public void giveMeCreditLimit(){
+    public void giveMeCreditLimit() {
         CreditAccount account = new CreditAccount(
                 0,
                 4567,
@@ -41,7 +41,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void changeAndGiveMeRate(){
+    public void changeAndGiveMeRate() {
         CreditAccount account = new CreditAccount(
                 54,
                 4237,
@@ -54,7 +54,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayWithoutCredit(){
+    public void shouldPayWithoutCredit() {
         CreditAccount account = new CreditAccount(
                 500,
                 500,
@@ -67,7 +67,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayWithCredit(){
+    public void shouldPayWithCredit() {
         CreditAccount account = new CreditAccount(
                 500,
                 500,
@@ -80,7 +80,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldNotPay(){
+    public void shouldNotPay() {
         CreditAccount account = new CreditAccount(
                 500,
                 500,
@@ -91,18 +91,18 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddBalance(){
-            CreditAccount account = new CreditAccount(
-                    750,
-                    1000,
-                    15
-            );
+    public void shouldAddBalance() {
+        CreditAccount account = new CreditAccount(
+                750,
+                1000,
+                15
+        );
 
-            Assertions.assertEquals(true, account.add(1000));
-        }
+        Assertions.assertEquals(true, account.add(1000));
+    }
 
     @Test
-    public void shouldNotAddBalance(){
+    public void shouldNotAddBalance() {
         CreditAccount account = new CreditAccount(
                 750,
                 1000,
@@ -113,7 +113,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void percentOfNegativeBalance(){
+    public void percentOfNegativeBalance() {
         CreditAccount account = new CreditAccount(
                 1000,
                 1000,
@@ -126,7 +126,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void percentOfPositiveBalance(){
+    public void percentOfPositiveBalance() {
         CreditAccount account = new CreditAccount(
                 1000,
                 1000,
@@ -139,7 +139,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void negativePay(){
+    public void negativePay() {
         CreditAccount account = new CreditAccount(
                 10,
                 10,
@@ -150,7 +150,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void negativeAdd(){
+    public void negativeAdd() {
         CreditAccount account = new CreditAccount(
                 10,
                 10,
