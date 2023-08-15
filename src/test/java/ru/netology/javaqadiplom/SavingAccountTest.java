@@ -18,6 +18,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(2_000 + 3_000, account.getBalance());
     }
+
     @Test
     public void shouldAddLessThanMinBalance() {
         SavingAccount account = new SavingAccount(
@@ -32,6 +33,7 @@ public class SavingAccountTest {
         Assertions.assertFalse(false);
         System.out.println(account.getBalance());
     }
+
     @Test
     public void upperLimitBalance() {
         SavingAccount account = new SavingAccount(
@@ -46,6 +48,7 @@ public class SavingAccountTest {
         Assertions.assertFalse(false);
         System.out.println(account.getBalance());
     }
+
     @Test
     public void сalculationTheInterestAccruedForTheYear() {
         SavingAccount account = new SavingAccount(
@@ -57,6 +60,7 @@ public class SavingAccountTest {
         account.add(300);
         Assertions.assertEquals(115, account.yearChange());
     }
+
     @Test
     public void willPayАorThePurchase() {
         SavingAccount account = new SavingAccount(
@@ -71,6 +75,7 @@ public class SavingAccountTest {
         Assertions.assertTrue(true);
         System.out.println("Текущий баланс " + account.getBalance());
     }
+
     @Test
     public void paymentGoingBeyondTheMinimumlimit() {
         SavingAccount account = new SavingAccount(
@@ -85,6 +90,7 @@ public class SavingAccountTest {
         Assertions.assertFalse(false);
         System.out.println("Текущий баланс " + account.getBalance());
     }
+
     @Test
     public void minimumBalance() {
         SavingAccount account = new SavingAccount(
@@ -95,11 +101,13 @@ public class SavingAccountTest {
         );
         account.pay(9000);
         int expected = 1_000;
-        int actual = account.getMinBalance();;
+        int actual = account.getMinBalance();
+        ;
 
         Assertions.assertEquals(actual, expected);
 
     }
+
     @Test
     public void maxBalance() {
         SavingAccount account = new SavingAccount(
@@ -114,5 +122,39 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(actual, expected);
 
+    }
+
+    @Test
+    public void negativAdd() {
+        SavingAccount account = new SavingAccount(
+                1_000,
+                1_000,
+                10_000,
+                5
+        );
+        Assertions.assertEquals(false, account.add(-500));
+    }
+
+    @Test
+    public void negativPay() {
+        SavingAccount account = new SavingAccount(
+                1_000,
+                1_000,
+                10_000,
+                5
+        );
+        Assertions.assertEquals(false, account.pay(-500));
+    }
+
+    @Test
+    public void sholdNotAdd() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            SavingAccount account = new SavingAccount(
+                    1_000,
+                    1_000,
+                    10_000,
+                    -5
+            );
+        });
     }
 }
