@@ -48,9 +48,12 @@ public class SavingAccount extends Account {
             return false;
         }
         balance= balance - amount;
-        if ( balance > minBalance) {
+       
+        if (balance > minBalance) {
+            this.balance = balance;
+
             return true;
-        } else {
+        } else {balance = balance + amount;
             return false;
         }
     }
